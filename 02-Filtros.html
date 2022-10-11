@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/lib/angular.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ "Hola Mundo desde AngularJS" }}</h1>
+
+        <h1>Filtros :: Filters</h1>
+        <h4>en angularjs</h4>
+        <hr>
+
+        <p>
+            Filtro de testo: {{ "FerNandO"}}
+            <br>
+            Filtro de testo: {{ "FerNandO" | uppercase }}
+            <br>
+            Filtro de testo: {{ "FerNandO" | lowercase }}
+        </p>
+
+        <p>
+            Filtro de moneda: {{ 1350 }}
+            <br>
+            Filtro de moneda: {{ 1350 | currency }}
+            <br>
+            Filtro de moneda: {{ 1350 | currency:'R$ ' }}
+        </p>
+
+        <p>
+            Filtro de número: {{ 1350000 }}
+            <br>
+            Filtro de número: {{ 1350000 | number }}
+
+    </div>
+</body>
+</html>
