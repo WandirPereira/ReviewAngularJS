@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html ng-app="universidadApp">
+<html ng-app="universidadApp" ng-controller="mainCtrl">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>NG-REPEAT - ng-repeat</title>
+        <title>Universidad</title>
 
 
         <!-- Incluir Bootstrap -->
@@ -11,66 +11,37 @@
         <!-- Animate.css -->
         <link rel="stylesheet" href="css/animate.css">
 
+        <!-- Estilo personalizado -->
+        <link rel="stylesheet" href="css/style.css">
+
         <!-- Incluir AngularJS -->
         <script src="js/lib/angular.min.js"></script>
+        <script src="js/lib/angular-route.min.js"></script>
+
 
         <script src="js/app.js"></script>
+        <script src="js/config.js"></script>
 
-        <style>
-            .avatar{
-                width: 45px;
-                height: 45px;
-            }
+        <!-- Controladores de páginas -->
+        <script src="js/inicioCtrl.js"></script>
+        <script src="js/profesoresCtrl.js"></script>
+        <script src="js/alumnosCtrl.js"></script>
 
-            .puntero{
-                cursor: pointer;
-            }
-        </style>
 
+        
     </head>    
     <body>
+        
+        <div ng-include="menuSuperior"></div>
 
-        <div class="container" ng-controller="listadoCtrl">
+        
+        <div class="container">
+        <!-- La pagina principal ira aquí -->
             
-            <h1>Filtros</h1>
-            <h4>Para el ng-repeat</h4>
-            <hr>
+            <div ng-view></div>
 
-            <div class="row">
-                Nombre:
-                <br>
-                <input type="text" ng-model="busqueda.nombre" class="form-control" placeholder="Ingese lo que desea buscar">
+        </div><!-- /.container -->
 
-                Sexo:
-                <br>
-                <select ng-model="busqueda.sexo" class="form-control">
-                    <option value="">Cualquiera</option>
-                    <option value="mujer">Mujeres</option>
-                    <option value="hombre">Hombres</option>
-                </select>
-
-            </div>
-
-
-
-            <table class="table table-striped">
-                <tr>
-                    <th>Avatar</th>
-                    <th><a class="puntero" ng-click="columna='nombre'; x=!x;">Nombre</a></th>
-                    <th><a class="puntero" ng-click="columna='sexo'; x=!x;">Sexo</a></th>
-                    <th>Teléfone</th>
-                    <th>Celular</th>
-                </tr>
-                <tr ng-repeat="persona in personas | filter:busqueda | orderBy:columna:x ">
-                    <td><img ng-src="img/{{ persona.avatar}}" class="avatar img-circle"> </td>
-                    <td>{{persona.nombre}}</td>
-                    <td>{{persona.sexo}}</td>
-                    <td>{{persona.telefono}}</td>
-                    <td>{{persona.celular}}</td>
-                </tr>
-            </table>
-           
-        </div><!-- fin del listadoCtrl -->
 
     </body>
 </html>
