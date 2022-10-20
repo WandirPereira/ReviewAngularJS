@@ -9,6 +9,6 @@ header('Content-Type: application/json');
 
 $sql = "SELECT * FROM alumnos ORDER BY nombre ASC";
 
-echo Database::get_json_rows($sql);
+echo Database::getInstancia()->get_json_rows($sql);
 
 ?>

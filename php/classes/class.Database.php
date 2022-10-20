@@ -12,10 +12,10 @@
 class Database{
 
 	private $_connection;
-	private $_host = "localhost:3306";
-	private $_user = "root";
-	private $_pass = "senha@1234";
-	private $_db   = "univer_db";
+	private $_host = '127.0.0.1:3306';
+	private $_user = 'root';
+	private $_pass = 'senha@1234';
+	private $_db   = 'univer_db';
 
 
 	// Almacenar una unica instancia
@@ -31,7 +31,6 @@ class Database{
 		if(!isset(self::$_instancia)){
 			self::$_instancia = new self;
 		}
-
 		return self::$_instancia;
 	}
 
@@ -39,7 +38,9 @@ class Database{
 	// Constructor de la clase Base de datos
 	// ================================================
 	public function __construct(){
-		$this->_connection = new mysqli($this->_host,$this->_user,$this->_pass,$this->_db);
+		//$this->_connection = new mysqli($this->_host,$this->_user,$this->_pass,$this->_db);
+		
+		$this->_connection = new mysqli('127.0.0.1:3306', 'root', 'senha@1234', 'univer_db');
 
 		// Manejar error en base de datos
 		if (mysqli_connect_error()) {
